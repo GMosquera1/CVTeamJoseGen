@@ -25,29 +25,24 @@ class MagicViewController: UIViewController {
         super.viewDidLoad()
         magicCollectionView.dataSource = self
         magicCollectionView.delegate = self
-        
-        guard let url = URL.init(string: "https://api.magicthegathering.io/v1/cards?contains=imageUrl") else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        upDate()
+    }
+    func upDate() {
+        NetworkHelper.shared.performDataTask(endpointURLString: "https://api.magicthegathering.io/v1/cards?contains=imageUrl") { (appError, data, httpResponse) in
             if let data = data {
                 do {
-                    let MagicData = try JSONDecoder().decode(MagicModel.self, from: data)
-                    self.magicImages = MagicData.cards
-                    
-                    //MAKE SURE ALL THE OBJECTS HAVE A IMAGEURL
-                    
-                    print(self.magicImages[0].name)
-                    
+                    let MagicData = try JSONDecoder().decode(MagicModel.self, from: data).cards.filter() {$0.imageUrl != nil}
+                    self.magicImages = MagicData
                 } catch {
                     print(error)
                 }
             }
-            if let error = error {
-                print(error)
+            if let appError = appError {
+                print(appError.errorMessage())
             }
-        }.resume()
-      }
+        }
     }
-
+}
 extension MagicViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return magicImages.count
@@ -55,21 +50,15 @@ extension MagicViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MagicCell", for: indexPath) as? MagicCell else { return UICollectionViewCell()}
-        //
-        guard let url = URL.init(string: magicImages[indexPath.row].imageUrl) else {
-            return UICollectionViewCell()
-        }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                DispatchQueue.main.async {
-                    cell.magicImageView.image = UIImage.init(data: data)
-                }
+        ImageHelper.shared.fetchImage(urlString: magicImages[indexPath.row].imageUrl!) { (appError, image) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let image = image {
+                cell.magicImageView.image = image
             }
-        }.resume()
+        }
         return cell
     }
-    
-    
 }
 extension MagicViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -77,5 +66,6 @@ extension MagicViewController: UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("we done did it")
+        }
     }
-}
+
