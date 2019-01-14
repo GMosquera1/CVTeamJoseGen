@@ -23,6 +23,9 @@
 		05A42DBD21E667E000C8CF7D /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A42DBC21E667E000C8CF7D /* ImageHelper.swift */; };
 		05A42DBF21E6836200C8CF7D /* MagicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A42DBE21E6836200C8CF7D /* MagicCell.swift */; };
 		05BDDF5A21E7F5950017FD70 /* PokemonAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF5921E7F5950017FD70 /* PokemonAPIClient.swift */; };
+		6797628621E806F100811C5F /* MagicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797628521E806F100811C5F /* MagicDetailViewController.swift */; };
+		6797628821E8084500811C5F /* MagicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797628721E8084500811C5F /* MagicAPI.swift */; };
+		6797628A21E846B700811C5F /* MagicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797628921E846B700811C5F /* MagicDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		05A42DBC21E667E000C8CF7D /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		05A42DBE21E6836200C8CF7D /* MagicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCell.swift; sourceTree = "<group>"; };
 		05BDDF5921E7F5950017FD70 /* PokemonAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIClient.swift; sourceTree = "<group>"; };
+		6797628521E806F100811C5F /* MagicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicDetailViewController.swift; sourceTree = "<group>"; };
+		6797628721E8084500811C5F /* MagicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPI.swift; sourceTree = "<group>"; };
+		6797628921E846B700811C5F /* MagicDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 				05722DD621E6B6A200E4B888 /* PokemonCell.swift */,
 				05722DDA21E7E0E800E4B888 /* PokemonDetailCell.swift */,
 				05A42DBE21E6836200C8CF7D /* MagicCell.swift */,
+				6797628921E846B700811C5F /* MagicDetail.swift */,
 				05A42DB521E6675200C8CF7D /* Models */,
 				05A42DA621E65F8B00C8CF7D /* Assets.xcassets */,
 				05A42DA821E65F8B00C8CF7D /* LaunchScreen.storyboard */,
@@ -104,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				05A42DA121E65F8A00C8CF7D /* MagicViewController.swift */,
+				6797628521E806F100811C5F /* MagicDetailViewController.swift */,
 				05722DD421E6ADC200E4B888 /* PokemonViewController.swift */,
 				05722DD821E7D6C100E4B888 /* PokemonDetailedViewController.swift */,
 			);
@@ -117,6 +125,7 @@
 				05A42DBA21E667CC00C8CF7D /* AppError.swift */,
 				05A42DBC21E667E000C8CF7D /* ImageHelper.swift */,
 				05BDDF5921E7F5950017FD70 /* PokemonAPIClient.swift */,
+				6797628721E8084500811C5F /* MagicAPI.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -192,9 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6797628A21E846B700811C5F /* MagicDetail.swift in Sources */,
 				05A42DA221E65F8A00C8CF7D /* MagicViewController.swift in Sources */,
 				05A42DB221E6674300C8CF7D /* MagicModel.swift in Sources */,
 				05722DDB21E7E0E800E4B888 /* PokemonDetailCell.swift in Sources */,
+				6797628821E8084500811C5F /* MagicAPI.swift in Sources */,
+				6797628621E806F100811C5F /* MagicDetailViewController.swift in Sources */,
 				05722DD521E6ADC200E4B888 /* PokemonViewController.swift in Sources */,
 				05722DD921E7D6C100E4B888 /* PokemonDetailedViewController.swift in Sources */,
 				05A42DBB21E667CC00C8CF7D /* AppError.swift in Sources */,
@@ -351,7 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9DV268QUJB;
+				DEVELOPMENT_TEAM = H6HD3SW977;
 				INFOPLIST_FILE = CollectionViewTeamJoseGen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -369,7 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9DV268QUJB;
+				DEVELOPMENT_TEAM = H6HD3SW977;
 				INFOPLIST_FILE = CollectionViewTeamJoseGen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
